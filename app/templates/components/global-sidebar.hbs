@@ -1,7 +1,6 @@
-<div class="sidebar-box {{boxStyle}}">
-  <LinkTo @route="search-wiki"><i class="fa fa-search" aria-hidden="true"></i> Search</LinkTo>
+<div class="sidebar-box {{boxStyle}} text-center">
+  <SidebarSearch @model={{model}} />
 </div>
-
 
 <div class="sidebar-box {{boxStyle}}">
   <div class="sidebar-heading">
@@ -21,16 +20,18 @@
    
     <p>Today is {{model.game.ictime}}.
     <br>{{model.game.who_count}} character(s) online.
-    <br>{{model.game.scene_count}} scene(s) are in progress.
+    <br>{{model.game.scene_count}} scene(s) in progress.
   </p>
   
   {{#if model.motd}}
   <p><AnsiFormat @text={{model.motd}} /></p>
   {{/if}}
   
-  <p><LinkTo @route="scenes-live">Active Scenes</LinkTo> | 
-      <LinkTo @route="who">Who's Online</LinkTo></p>
-  
+  <p>       
+      <LinkTo @route="play">Play</LinkTo> | 
+      <LinkTo @route="scenes-live">Active Scenes</LinkTo> | 
+      <LinkTo @route="who">Who's Online</LinkTo> 
+  </p>
 {{/if}}
 
 </div>
@@ -71,10 +72,10 @@
    </div>
    {{#each model.recent_scenes as |scene|}}
    <p><LinkTo @route="scene" @model={{scene.id}}>{{scene.icdate}} - {{scene.title}}</LinkTo>
-       <SceneTypeTag @scene={{scene}} />
        {{#if scene.content_warning}}
        <ContentWarningTag @warning={{scene.content_warning}} @position="top-left" />
        {{/if}}
+       <SceneTypeTag @scene={{scene}} />
        <br></p>
    {{/each}}
    <br>
