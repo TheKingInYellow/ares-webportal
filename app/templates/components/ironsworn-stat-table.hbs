@@ -1,0 +1,9 @@
+<div class="char-ability-title">Stats</div>
+<table class="char-ability-list">
+  <tr>
+    {{#each char.ironsworn.stats as |stat| }}
+      <td><b>{{stat.name}}</b></td>
+      <td><Fs3Dots @max={{3}} @rating={{stat.rating}}/></td>
+    {{/each}}
+  </tr>
+</table>

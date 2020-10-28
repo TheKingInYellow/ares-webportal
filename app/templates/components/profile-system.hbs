@@ -28,7 +28,11 @@
   {{#if fateExtraInstalled}}
     <li><a data-toggle="tab" href="#systemfate">Sheet</a></li>
   {{/if}}
-  
+
+  {{#if ironswornExtraInstalled}}
+    <li><a data-toggle="tab" href="#systemironsworn">Sheet</a></li>
+  {{/if}}
+
   {{#if char.siteinfo}}
     <li><a data-toggle="tab" href="#systemsite">Admin</a></li>
   {{/if}}
@@ -92,6 +96,10 @@
   
   {{#if fateExtraInstalled}}
     <ProfileFate @char={{char}} />
+  {{/if}}
+
+  {{#if ironswornExtraInstalled}}
+    <ProfileIronsworn @char={{char}} />
   {{/if}}
   
   {{#if char.achievements}}

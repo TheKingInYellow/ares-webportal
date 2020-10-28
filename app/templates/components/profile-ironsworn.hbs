@@ -1,0 +1,6 @@
+<div id="systemironsworn" class="tab-pane fade">
+  <IronswornStatTable @char={{char}}/>
+  <IronswornStatusTable @char={{char}}/>
+  <IronswornAssetTable @title="Assets" @assets={{char.ironsworn.assets}}/>
+  <IronswornAssetTable @title="Shared Assets" @assets={{char.ironsworn.assets_shared}}/>
+</div>

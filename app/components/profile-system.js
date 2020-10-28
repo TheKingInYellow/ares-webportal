@@ -9,6 +9,9 @@ export default Component.extend({
     fateExtraInstalled: computed(function() {
       return this.get('game.extra_plugins').any(e => e == 'fate');
     }),
+    ironswornExtraInstalled: computed(function() {
+      return this.get('game.extra_plugins').any(e => e == 'ironsworn');
+    }),
     
     actions: { 
         reloadChar() {

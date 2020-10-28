@@ -191,6 +191,9 @@
                              {{#if scene.fs3_enabled}}
                                  <LiveSceneFs3 @abilities={{abilities}} @scene={{scene}} />
                              {{/if}}
+                             {{#if ironswornExtraInstalled}}
+                                 <LiveSceneIronsworn @abilities={{abilities}} @scene={{scene}} />
+                             {{/if}}
                              
                              {{#if cookiesExtraInstalled}}
                                <LiveSceneCookies @scene={{scene}} />

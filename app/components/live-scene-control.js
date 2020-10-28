@@ -61,6 +61,9 @@ export default Component.extend(AuthenticatedController, {
     cookiesExtraInstalled: computed(function() {
       return this.get('scene.extras_installed').some(e => e == 'cookies');
     }),
+    ironswornExtraInstalled: computed(function() {
+      return this.get('scene.extras_installed').some(e => e == 'ironsworn');
+    }),
     
     sceneAlerts: computed('scene.{is_watching,reload_required}', 'scrollPaused', function() {
       let alertList = [];

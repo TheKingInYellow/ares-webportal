@@ -1,0 +1,51 @@
+<div class="char-ability-title">{{title}}</div>
+<table class="char-ability-list">
+  {{#each assets as |asset|}}
+    <tr>
+      <td class="centered"><b>{{asset.name}}</b></td><
+      <td class="centered">{{asset.category}}</td>
+      <td class="centered">
+      {{#if asset.note}}
+        {{asset.note}}
+      {{/if}}
+      </td>
+      <td class="centered">
+      {{#if (and asset.max_health (eq asset.category 'Companion'))}}
+        Health <Fs3Dots @max={{asset.max_health}} @rating={{asset.health}} />
+      {{else if asset.max_health}}
+        Integrity <Fs3Dots @max={{asset.max_health}} @rating={{asset.health}} />
+      {{/if}}
+      </td>
+    </tr>
+    <tr>
+      <td class="right-justify">
+        {{#if (gte asset.rating 1)}}
+          <Fs3Dots @max={{1}} @rating={{1}}/>
+        {{else}}
+          <Fs3Dots @max={{1}} @rating={{0}}/>
+        {{/if}}
+      </td>
+      <td colspan="3" class="justified"><AnsiFormat @text={{asset.steps.[0]}}/></td>
+    </tr>
+    <tr>
+      <td class="right-justify">
+        {{#if (gte asset.rating 2)}}
+          <Fs3Dots @max={{1}} @rating={{1}}/>
+        {{else}}
+          <Fs3Dots @max={{1}} @rating={{0}}/>
+        {{/if}}
+      </td>
+      <td colspan="3" class="justified"><AnsiFormat @text={{asset.steps.[1]}}/></td>
+    </tr>
+    <tr>
+      <td class="right-justify">
+        {{#if (gte asset.rating 3)}}
+          <Fs3Dots @max={{1}} @rating={{1}}/>
+        {{else}}
+          <Fs3Dots @max={{1}} @rating={{0}}/>
+        {{/if}}
+      </td>
+      <td colspan="3" class="justified"><AnsiFormat @text={{asset.steps.[2]}}/></td>
+    </tr>
+  {{/each}}
+</table>
