@@ -1,13 +1,13 @@
 {{#each dots as |r|}}
- {{#if r.ticks == 0}}
+ {{#if eq r.ticks 0}}
  <i class="fas fa-circle fa-sm char-dot-empty"></i>
- {{elif r.ticks == 1}}
+ {{elif eq r.ticks 1}}
  <i>¼</i>
- {{elif r.ticks == 2}}
+ {{elif eq r.ticks 2}}
  <i class="fas fa-adjust fa-sm char-dot-fill"></i>
- {{elif r.ticks == 3}}
+ {{elif eq r.ticks 3}}
  <i>¾<i>
- {{elif r.ticks == 4}}
+ {{else}}
  <i class="far fa-circle fa-sm char-dot-fill"></i>
  {{/if}}
 {{/each}}
