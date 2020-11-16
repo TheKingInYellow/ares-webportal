@@ -3,16 +3,22 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   tagName: 'span',
-  
-    get_ticks(i) {
-      let rating = this.ticks / 4;
-      return 0 if i > rating;
-      return 4 if i < rating;
-      return this.ticks % 4;
-    }
 
     dots: computed('ticks', function() {
-      let max = this.max;
-      return (new Array(max)).fill({}).map(function (fill, i) { return { ticks: get_ticks(i+1) }; });
+      const get_ticks = function(i, ticks) {
+        const rating = ticks / 4;
+        if (i > rating) return 0;
+        if (i < rating) return 4;
+        return ticks % 4;
+      };
+
+      const max = this.max;
+      const ticks = this.get('ticks');
+      return [...Array(max).keys()].map((i) => get_ticks(i, ticks));
+    }),
+
+    progress: computed('ticks', function() {
+      const ticks = this.get('ticks');
+      return ticks / 4;
     })
 });

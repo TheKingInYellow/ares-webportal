@@ -1,0 +1,24 @@
+<div class="char-ability-title">Progress</div>
+<table class="char-ability-list">
+  {{#each char.ironsworn.progress as |p|}}
+    <tr>
+      <td><b>{{p.name}}</b></td><
+      <td class="centered">{{p.rank}}</td>
+      <td class="centered">{{p.type}}</td>
+      <td class="centered">
+        {{#if p.completed}}
+          Completed
+        {{else}}
+          <IronswornProgress @max={{10}} @ticks={{p.ticks}}/>
+        {{/if}}
+      </td>
+    </tr>
+    {{#if p.note}}
+      <tr>
+        <td colspan="4">
+          {{p.note}}
+        </td>
+      </tr>
+    {{/if}}
+  {{/each}}
+</table>
