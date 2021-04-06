@@ -25,6 +25,10 @@
     <li><a data-toggle="tab" href="#systemtraits">Traits</a></li>
   {{/if}}
   
+  {{#if rpgExtraInstalled}}
+    <li><a data-toggle="tab" href="#systemrpg">Sheet</a></li>
+  {{/if}}
+  
   {{#if fateExtraInstalled}}
     <li><a data-toggle="tab" href="#systemfate">Sheet</a></li>
   {{/if}}
@@ -94,6 +98,10 @@
     <ProfileTraits @char={{char}} />
   {{/if}}
   
+  {{#if rpgExtraInstalled}}
+    <RpgProfile @char={{char}} />
+  {{/if}}
+  
   {{#if fateExtraInstalled}}
     <ProfileFate @char={{char}} />
   {{/if}}
@@ -104,7 +112,7 @@
   
   {{#if char.achievements}}
   <div id="systemachievements" class="tab-pane fade">
-      <CharAchievements @achievements={{char.achievements}} />
+      <CharAchievements @achievements={{char.achievements}} @sceneStats={{char.scene_stats}}/>
   </div>
   {{/if}}
   

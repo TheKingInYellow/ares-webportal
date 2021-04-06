@@ -17,6 +17,7 @@ export default Component.extend(AuthenticatedController, {
     reportReason: null,
     poseType: null,
     poseChar: null,
+    commandResponse: null,
     gameApi: service(),
     flashMessages: service(),
     gameSocket: service(),
@@ -63,6 +64,10 @@ export default Component.extend(AuthenticatedController, {
     }),
     ironswornExtraInstalled: computed(function() {
       return this.get('scene.extras_installed').some(e => e == 'ironsworn');
+    }),
+    
+    rpgExtraInstalled: computed(function() {
+      return this.get('scene.extras_installed').some(e => e == 'rpg');
     }),
     
     sceneAlerts: computed('scene.{is_watching,reload_required}', 'scrollPaused', function() {
@@ -186,6 +191,12 @@ export default Component.extend(AuthenticatedController, {
               if (response.error) {
                   return;
               }
+              if (response.command_response) {
+                this.set('commandResponse', response.command_response);
+              } else {
+                this.set('commandResponse', '');
+              }
+              
               this.scrollDown();
           });
       },

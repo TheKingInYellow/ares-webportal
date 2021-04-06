@@ -13,6 +13,10 @@ export default Component.extend({
       return this.get('game.extra_plugins').any(e => e == 'ironsworn');
     }),
     
+    rpgExtraInstalled: computed(function() {
+      return this.get('game.extra_plugins').any(e => e == 'rpg');
+    }),
+    
     actions: { 
         reloadChar() {
             this.reloadChar();
